@@ -1,13 +1,3 @@
-// var video;
-
-// window.addEventListener("load", function() {
-// 	console.log("Good job opening the window")
-
-// });
-// document.querySelector("#play").addEventListener("click", function() {
-// 	console.log("Play Video");
-// });
-
 let video; 
 
 window.addEventListener("load", function() {    
@@ -36,3 +26,43 @@ document.querySelector("#slower").addEventListener("click", function(){
 	console.log("New speed is " + video.playbackRate)
 	console.log("Speed is ", video.playbackRate)
 });
+
+document.querySelector("#faster").addEventListener("click", function(){
+	console.log("speed up video")
+	video.playbackRate *= (1/0.90)
+	console.log("New speed is " + video.playbackRate)
+	console.log("Speed is ", video.playbackRate)
+})
+
+document.querySelector("skip").addEventListener("click", function(){
+	console.log("skip ahead 10 seconds")
+	video.currentTime += 10;
+	if (video.currentTime >= video.duration){
+		video.currentTime = 0;
+		console.log("restart video")
+	}
+})
+
+document.querySelector("#mute").addEventListener("click", function(){
+	console.log("mute video")
+	if (video.muted == false){
+		video.muted = true;
+		document.querySelector("#mute").innerHTML = "Unmute"
+	}
+	else{
+		video.muted = false;
+		document.querySelector("#mute").innerHTML = "Mute"
+	}
+})
+
+document.querySelector("#slider").addEventListener("change", function(){
+	console.log(this.value)
+	video.volume = this.value / 100
+	document.querySelector("#volume").innerHTML = video.volume * 100 + "%"
+	console.log("Volume is ", video.volume)
+})
+
+document.querySelector("#vintage").addEventListener("click", function(){
+	 
+})
+
