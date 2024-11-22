@@ -18,6 +18,7 @@ document.querySelector("#play").addEventListener("click", function(){
 
 document.querySelector("#pause").addEventListener("click", function(){
 	video.pause()
+	console.log("pause video")
 	});
 
 document.querySelector("#slower").addEventListener("click", function(){
@@ -63,6 +64,17 @@ document.querySelector("#slider").addEventListener("change", function(){
 })
 
 document.querySelector("#vintage").addEventListener("click", function(){
-	 
+	 var video = document.querySelector("#player1");
+	 if (video){
+	 	video.classList.add("oldSchool");
+		console.log("Old School enabled")
+	 }
 })
 
+document.querySelector("#orig").addEventListener("click", function(){
+	var video = document.querySelector("#player1");
+	if (video){
+		video.classList.remove("oldSchool");
+		console.log("Old School disabled")
+	}
+})
